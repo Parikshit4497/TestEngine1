@@ -1,0 +1,256 @@
+2018-07-11 17:11:42 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:11:42 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:11:42 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:11:42 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:11:42 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:12:38 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:12:38 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:12:38 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:12:38 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:12:38 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:13:31 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:13:31 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:13:31 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:13:31 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:13:31 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:13:39 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:13:39 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:13:39 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:13:42 DEBUG LoginView:148 - Inside Reset button method
+2018-07-11 17:13:59 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:13:59 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:13:59 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:13:59 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:13:59 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:14:07 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:14:07 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:14:07 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:14:09 DEBUG LoginView:66 - Inside checklogin class with userid
+2018-07-11 17:14:09 DEBUG LoginView:69 - Inside check login and loading method do login 
+2018-07-11 17:14:09 DEBUG UserDao:56 - Inside Userdao login behin connection establishment 
+2018-07-11 17:14:11 ERROR LoginView:79 - java.sql.SQLException: No suitable driver found for "jdbc:postgressl://locoalhost:5432/exam"
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at com.brainmentors.testengine.util.constants.CommonDao.getConnection(CommonDao.java:16)
+	at com.brainmentors.testengine.user.view.dao.UserDao.dologin(UserDao.java:57)
+	at com.brainmentors.testengine.user.view.LoginView.checkLogin(LoginView.java:71)
+	at com.brainmentors.testengine.user.view.LoginView$2.actionPerformed(LoginView.java:136)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+java.sql.SQLException: No suitable driver found for "jdbc:postgressl://locoalhost:5432/exam"
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at com.brainmentors.testengine.util.constants.CommonDao.getConnection(CommonDao.java:16)
+	at com.brainmentors.testengine.user.view.dao.UserDao.dologin(UserDao.java:57)
+	at com.brainmentors.testengine.user.view.LoginView.checkLogin(LoginView.java:71)
+	at com.brainmentors.testengine.user.view.LoginView$2.actionPerformed(LoginView.java:136)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+2018-07-11 17:14:11 DEBUG LoginView:137 - Inside login button method
+2018-07-11 17:14:12 DEBUG LoginView:148 - Inside Reset button method
+2018-07-11 17:16:41 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:16:41 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:16:41 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:16:41 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:16:41 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:16:49 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:16:49 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:16:49 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:25:06 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:25:07 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:25:07 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:25:07 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:25:07 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:25:15 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:25:15 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:25:15 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:25:17 DEBUG LoginView:148 - Inside Reset button method
+2018-07-11 17:25:19 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:25:19 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:25:19 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:25:21 DEBUG LoginView:148 - Inside Reset button method
+2018-07-11 17:26:52 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:26:52 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:26:52 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:26:52 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:26:52 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:27:00 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:27:00 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:27:00 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:27:02 DEBUG LoginView:148 - Inside Reset button method
+2018-07-11 17:27:24 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:27:24 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:27:24 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:28:48 DEBUG SplashTest:77 - Inside splas test method
+2018-07-11 17:28:48 DEBUG SplashTest:99 -  leavin splash test method
+2018-07-11 17:28:48 DEBUG SplashTest:62 - Inside main and loading splash screen frame
+2018-07-11 17:28:48 DEBUG SplashTest:34 - Inside animation method before timer logic...
+2018-07-11 17:28:48 DEBUG SplashTest:51 - leaving animation logic......
+2018-07-11 17:28:57 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:28:57 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:28:57 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:28:59 DEBUG LoginView:148 - Inside Reset button method
+2018-07-11 17:29:35 DEBUG LoginView:92 - Inside login view message
+2018-07-11 17:29:35 DEBUG LoginView:139 - Outside login button method
+2018-07-11 17:29:35 DEBUG LoginView:151 - Outside Reset button method
+2018-07-11 17:32:55 DEBUG LoginView:66 - Inside checklogin class with userid
+2018-07-11 17:32:55 DEBUG LoginView:69 - Inside check login and loading method do login 
+2018-07-11 17:32:55 DEBUG UserDao:56 - Inside Userdao login behin connection establishment 
+2018-07-11 17:32:56 ERROR LoginView:79 - java.sql.SQLException: No suitable driver found for "jdbc:postgressl://locoalhost:5432/exam"
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at com.brainmentors.testengine.util.constants.CommonDao.getConnection(CommonDao.java:16)
+	at com.brainmentors.testengine.user.view.dao.UserDao.dologin(UserDao.java:57)
+	at com.brainmentors.testengine.user.view.LoginView.checkLogin(LoginView.java:71)
+	at com.brainmentors.testengine.user.view.LoginView$2.actionPerformed(LoginView.java:136)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+java.sql.SQLException: No suitable driver found for "jdbc:postgressl://locoalhost:5432/exam"
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at com.brainmentors.testengine.util.constants.CommonDao.getConnection(CommonDao.java:16)
+	at com.brainmentors.testengine.user.view.dao.UserDao.dologin(UserDao.java:57)
+	at com.brainmentors.testengine.user.view.LoginView.checkLogin(LoginView.java:71)
+	at com.brainmentors.testengine.user.view.LoginView$2.actionPerformed(LoginView.java:136)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+2018-07-11 17:32:56 DEBUG LoginView:137 - Inside login button method
+2018-07-11 17:32:59 DEBUG LoginView:148 - Inside Reset button method
