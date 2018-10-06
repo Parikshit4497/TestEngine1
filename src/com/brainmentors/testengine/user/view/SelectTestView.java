@@ -26,6 +26,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
 import javax.swing.ScrollPaneConstants;
+import java.awt.Color;
+import javax.swing.UIManager;
 
 public class SelectTestView extends JFrame {
 
@@ -84,7 +86,7 @@ public class SelectTestView extends JFrame {
 			e1.printStackTrace();
 		}
 				
-		int x=10;
+		int x=0;
 		System.out.println("The size of the test list "  + TestList.size());
 	    button=new ArrayList<>();
 		for(int i=0;i<TestList.size();i++) {
@@ -94,10 +96,11 @@ public class SelectTestView extends JFrame {
 		    button.add(Button);
 			Button.setFont(new Font("Times New Roman", Font.BOLD, 15));
 			System.out.println("button loop");
-			Button.setBounds(20,x,100, 87);
+			Button.setBounds(0,x,100, 87);
 			bg.add(Button);
-			scrollPane.add(Button);
+			contentPane1.add(Button);
 			x+=i*20;
+		
 		}
         	
 		for( int i=0;i<button.size();i++) {
@@ -134,29 +137,34 @@ public class SelectTestView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
-		//contentPane1 = new JPanel();
+		contentPane1 = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		scrollPane= new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		contentPane.add(scrollPane);
-//		contentPane1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-//		contentPane1.setBounds(100,100, 900, 600);
-		scrollPane.setViewportView(contentPane1);
+ 		contentPane1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+	contentPane1.setBounds(100,100, 900, 600);
+	scrollPane.setViewportView(contentPane1);
+	
 		scrollPane.setPreferredSize(new Dimension(800,400));
 		button_1 = new JButton("Submit ");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(fetchTest()) {
-					
-				}else {
-					JOptionPane.showMessageDialog(null, "Select atleast one button ");
+		button_1.setBackground(UIManager.getColor("Button.background"));
+		
+			button_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					if(fetchTest()) {
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "Select atleast one button ");
+					}
 				}
-			}
-		});
-		button_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		contentPane.add(button_1);
+			});
+			button_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
+			button_1.setBounds(900, 600, 20, 30);
+			contentPane.add(button_1);
+			
 		selectTest();
 		bg.clearSelection();
 	}
