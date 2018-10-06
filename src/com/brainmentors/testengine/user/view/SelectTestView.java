@@ -1,6 +1,7 @@
 package com.brainmentors.testengine.user.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,8 @@ import com.brainmentors.testengine.util.constants.QueryConstants;
 
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+import java.awt.FlowLayout;
+import javax.swing.ScrollPaneConstants;
 
 public class SelectTestView extends JFrame {
 
@@ -33,6 +36,8 @@ public class SelectTestView extends JFrame {
      private ButtonGroup bg =new ButtonGroup();
      JScrollPane scrollPane ;
      ArrayList<JRadioButton> button;
+     static SelectTestView frame;
+     private JButton button_1;
 	/**
 	 * Launch the application.
 	 */
@@ -40,7 +45,7 @@ public class SelectTestView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SelectTestView frame = new SelectTestView();
+					 frame= new SelectTestView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -79,48 +84,49 @@ public class SelectTestView extends JFrame {
 			e1.printStackTrace();
 		}
 				
-		int x=20;
+		int x=10;
 		System.out.println("The size of the test list "  + TestList.size());
+	    button=new ArrayList<>();
 		for(int i=0;i<TestList.size();i++) {
 			Button= new JRadioButton(TestList.get(i));
-		    button=new ArrayList<>();
+			System.out.println(TestList.get(i));
+		
 		    button.add(Button);
 			Button.setFont(new Font("Times New Roman", Font.BOLD, 15));
 			System.out.println("button loop");
-			
-			Button.setBounds(40,x,100, 87);
+			Button.setBounds(20,x,100, 87);
 			bg.add(Button);
-			contentPane1.add(Button);
-			x+=i*120;
-			
+			scrollPane.add(Button);
+			x+=i*20;
+		}
+        	
+		for( int i=0;i<button.size();i++) {
+			System.out.println("The test buttons " +button.get(i).getText());
+		}
+	}
+	public boolean  fetchTest() {
 		
+		for(int i=0;i<button.size();i++) {
+			
+			if(button.get(i).isSelected()) {
+				
+				String testName=button.get(i).getText().trim();
+				System.out.println("The test name selected is " + testName);
+				TakeTestView frame1= new TakeTestView(testName);
+				frame1.setVisible(true);
+				
+				frame.dispose();
+				return true;
+			}
+			
+			
 			
 		}
-	
+		
+		return false;
+			
 		
 	}
-        public void  fetchTest() {
-        for(int i=0;i<button.size();i++) {	
-        	if(button.get(i).isSelected()) {
-        		
-    			TestName=button.get(i).getText().trim();
-    			TakeTestView taketest=new TakeTestView(TestName);
-    	    	taketest.setVisible(true);
-    	    	taketest.setExtendedState(JFrame.MAXIMIZED_BOTH);
-    			System.out.println(" the test name in fetch test loop " +TestName);
-    			System.out.println("The fetch test loop");
-    			
-    		}else {
-    			JOptionPane.showMessageDialog(Button,"select one button ");
-    		}
-        
-        }
-        System.out.println("Outside fetch test loop ");
-    	
-    	this.dispose();
-    	System.out.println("Testname sent from select test " + TestName);
-		
-        }
 	/**
 	 * Create the frame.
 	 */
@@ -128,28 +134,29 @@ public class SelectTestView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
+		//contentPane1 = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		scrollPane= new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(21,29, 939, 431);
+		scrollPane= new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		contentPane.add(scrollPane);
-		contentPane1 = new JPanel();
-		JButton Submit = new JButton("Submit ");
-		Submit.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		Submit.addActionListener(new ActionListener() {
+//		contentPane1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+//		contentPane1.setBounds(100,100, 900, 600);
+		scrollPane.setViewportView(contentPane1);
+		scrollPane.setPreferredSize(new Dimension(800,400));
+		button_1 = new JButton("Submit ");
+		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
-		        fetchTest();
-			//	System.out.println(TestName);
-				
+				if(fetchTest()) {
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Select atleast one button ");
+				}
 			}
 		});
-		scrollPane.setViewportView(contentPane1);
-		contentPane1.setLayout(null);
-		Submit.setBounds(756, 496, 140, 38);
-		contentPane.add(Submit);
+		button_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		contentPane.add(button_1);
 		selectTest();
 		bg.clearSelection();
 	}
