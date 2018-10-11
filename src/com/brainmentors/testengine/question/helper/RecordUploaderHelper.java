@@ -6,13 +6,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.format.CellDateFormatter;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.Row;
 
 import com.brainmentors.testengine.user.dto.QuestionDTO;
@@ -102,10 +109,15 @@ public class RecordUploaderHelper {
 		}if(cellCount==11) {
 			userDTO.setGender(currentCell.getStringCellValue());
 		}if(cellCount==12) {
-		userDTO.setDateOfBirth(currentCell.getStringCellValue());	
+			 String strValue;
+			 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			 Date today =  currentCell.getDateCellValue() ;      
+			  String reportDate = df.format(today);
+			 
+		userDTO.setDateOfBirth(reportDate);	
 		}if(cellCount==13) {
-						userDTO.setCollegId(currentCell.getStringCellValue());
-
+						userDTO.setCollegId(String.valueOf((int)currentCell.getNumericCellValue()));
+//
 		}if(cellCount==14) {
 			userDTO.setUserid(currentCell.getStringCellValue());
 		}

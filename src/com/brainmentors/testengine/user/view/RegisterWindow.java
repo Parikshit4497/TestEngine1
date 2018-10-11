@@ -562,8 +562,10 @@ public class RegisterWindow extends JFrame {
 		        registerDTO.setPhoneNO(phoneNo.getText());
 		        String password=new String(password_form.getPassword());
                 registerDTO.setPassword(password);
-                String confirm_password=new String(password_confirm.getPassword());
-		        registerDTO.setConfirmPassword(confirm_password);
+//              String confirm_password=new String(password_confirm.getPassword());
+//		        registerDTO.setConfirmPassword(confirm_password);
+                registerDTO.setConfirmPassword(password_confirm.getPassword().toString());
+                
                 registerDTO.setSelectStream(streamChooser.getSelectedItem().toString());
                 registerDTO.setSelectUsertype(User_Type.getSelectedItem().toString());
                 registerDTO.setCollegId(IdText.getText());	

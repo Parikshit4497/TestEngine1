@@ -43,7 +43,7 @@ public class UploadViewFileTest extends JFrame  {
 			System.out.println(helper);
 			boolean isUpload =helper.read(file.getAbsolutePath());
 			System.out.println(file.getAbsolutePath());
-			JOptionPane.showMessageDialog(this, isUpload?"file is uploaded":"file is not uploaded ");
+			JOptionPane.showMessageDialog(this,isUpload ? "file is uploaded":"file is not uploaded ");
 			//QuplVieFi.debug("leaving try block");
 		}catch(IOException e) {
 			e.printStackTrace();

@@ -10,7 +10,7 @@ private String authentication;
 private String firstName;
 private String lastName;
 private String emailId;
-private String phoneNO;
+private String  phoneNO;
 
 
 public String getFirstName() {
@@ -31,11 +31,11 @@ public String getEmailId() {
 public void setEmailId(String emailId) {
 	this.emailId = emailId;
 }
-public String getPhoneNO() {
+public String  getPhoneNO() {
 	return phoneNO;
 }
-public void setPhoneNO(String phoneNO) {
-	this.phoneNO = phoneNO;
+public void setPhoneNO(String string) {
+	this.phoneNO = string;
 }
 public String getConfirmPassword() {
 	return confirmPassword;
