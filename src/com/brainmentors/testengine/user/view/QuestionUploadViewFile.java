@@ -26,43 +26,43 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 
-class JobUpload implements Runnable{
-	QuestionUploadHelper help;
-	String path;
-	int Time=0;
-	boolean isUploaded=false;
-	Thread t ;
-	JobUpload(QuestionUploadHelper helper,String msg,int time) {
-		help=helper;
-		path=msg;
-		t=new Thread(this);
-		Time=time;
-		t.start();
-		
-	
-	}
-	
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-			try {
-				//System.out.println(path);
-				isUploaded=help.read(path,Time);
-				
-								
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-		     System.out.println("Exception");       
-			} 
-	
-	
-	}
-	public boolean isUploaded() {
-		return isUploaded;
-	}
-}
+//class JobUpload implements Runnable{
+//	QuestionUploadHelper help;
+//	String path;
+//	int Time=0;
+//	boolean isUploaded=false;
+//	Thread t ;
+//	JobUpload(QuestionUploadHelper helper,String msg,int time) {
+//		help=helper;
+//		path=msg;
+//		t=new Thread(this);
+//		Time=time;
+//		t.start();
+//		
+//	
+//	}
+//	
+//	@Override
+//	public void run() {
+//		// TODO Auto-generated method stub
+//		
+//			try {
+//				//System.out.println(path);
+//				isUploaded=help.read(path,Time);
+//				System.out.println("isUploaded" + isUploaded);
+//								
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//		     System.out.println("Exception");       
+//			} 
+//	
+//	
+//	}
+//	public boolean isUploaded() {
+//		return isUploaded;
+//	}
+//}
 public class QuestionUploadViewFile extends JFrame {
 
 	private JPanel contentPane;
@@ -88,8 +88,14 @@ public class QuestionUploadViewFile extends JFrame {
 				//System.out.println(file.getAbsolutePath());
 				//boolean isUpload =helper.read(file.getAbsolutePath());
 		            time=Integer.parseInt(TimeEntry.getText());
-			     JobUpload job=new JobUpload(helper,file.getAbsolutePath(),time);
-			    boolean isUpload= job.isUploaded();
+//			     JobUpload job=new JobUpload(helper,file.getAbsolutePath(),time);
+     		    boolean isUpload=false;
+			    try {
+					isUpload=helper.read(file.getAbsolutePath(),time);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			    System.out.println(" 1 " +isUpload);
 				//ystem.out.println(file.getAbsolutePath());
 				JOptionPane.showMessageDialog(this, isUpload?"The file is uploaded":"The file is already present or database issue");
@@ -119,7 +125,7 @@ public class QuestionUploadViewFile extends JFrame {
 	 */
 	public QuestionUploadViewFile() {
 		QuplVieFi.debug("Inside uploadview file constructor");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

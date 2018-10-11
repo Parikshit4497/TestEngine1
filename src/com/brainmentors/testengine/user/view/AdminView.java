@@ -32,13 +32,14 @@ public class AdminView extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	 private static AdminView frame ;
 	Logger adminview = Logger.getLogger(AdminView.class);
 	public static void main(String[] args) {
 	
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminView frame = new AdminView();
+					frame = new AdminView();
 					frame.adminview.debug("Inside main method of admin view");
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -53,17 +54,32 @@ public class AdminView extends JFrame {
 	 */
 	public void authenticationOpen() {
 		adminview.debug("Entering authentication open ");
+		try {
 		AuthenticationView frame=new AuthenticationView();
+		}catch(Exception e1) {
+			
+				AdminView.generateMsg(false);
+		
+		}
 		frame.setVisible(true);
-		this.dispose();
+	//	this.dispose();
 		adminview.debug("leaving  authentication ");
 	}
 	public void roleRights() {
 		adminview.debug("Inside role rights function for frame call");
+		try {
 		RoleRightsView frame=new RoleRightsView();
+		}catch(IndexOutOfBoundsException e) {
+			AdminView.generateMsg(false);
+		}
 		frame.setVisible(true);
-		this.dispose();
+		//this.dispose();
 	adminview.debug("leaving  role rights");
+	}
+	public static void generateMsg(boolean status) {
+		if(status==false) {
+			JOptionPane.showMessageDialog(frame,"No new Records for assigning role and rights  or authentication");
+		}
 	}
 
 	public void upload() {
@@ -93,8 +109,9 @@ public class AdminView extends JFrame {
 	}
 	public AdminView() {
 		adminview.debug("entering admin view");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -110,7 +127,9 @@ public class AdminView extends JFrame {
 		btnAuthentication.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				adminview.debug("entering authentication button event ");
+				
 				authenticationOpen();
+				
 			}
 		});
 		adminview.debug("leaving  authentication button event ");

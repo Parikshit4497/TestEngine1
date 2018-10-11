@@ -94,9 +94,9 @@ public class DashBoardView extends JFrame {
 	private JLabel UserIdlbl = new JLabel("");
 	public DashBoardView() {
 		Dashboardvie.debug("inside dashboard view constructor");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
+		setResizable(false);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		

@@ -102,7 +102,7 @@ if(time==0){
 			tTView.debug("inside if condition");
 		QuestionDTO currentQuestion = questions.get(index);
 		question_area.setText(currentQuestion.getName());
-		qno.setText(String.valueOf(currentQuestion.getId()));
+		qno.setText(String.valueOf(currentQuestion.getQno()));
 		ans1.setText(currentQuestion.getAns1());
 		
 		ans2.setText(currentQuestion.getAns2());
@@ -233,6 +233,7 @@ private void	finishTest() {
 	JButton next = new JButton("Next");
 	private JLabel question_area=new JLabel("");
 	private JLabel	question = new JLabel("");
+	private final JLabel lblD = new JLabel("d");
 		
 	public TakeTestView(String TestName) {
 		TestName1=TestName;
@@ -240,7 +241,7 @@ private void	finishTest() {
 		printQuestion();
 		
 		tTView.debug("Inside take test view constructor");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -276,25 +277,25 @@ private void	finishTest() {
 		
 		ans1.setHorizontalAlignment(SwingConstants.LEFT);
 		ans1.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		ans1.setBounds(143, 322, 209, 32);
+		ans1.setBounds(143, 322, 301, 32);
 		contentPane.add(ans1);
 		buttonGroup.add(ans1);
 		
 		ans2.setHorizontalAlignment(SwingConstants.LEFT);
 		ans2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		ans2.setBounds(143, 411, 207, 32);
+		ans2.setBounds(143, 411, 320, 32);
 		contentPane.add(ans2);
 		buttonGroup.add(ans2);
 		
 		ans3.setHorizontalAlignment(SwingConstants.LEFT);
 		ans3.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		ans3.setBounds(509, 322, 209, 32);
+		ans3.setBounds(592, 322, 320, 32);
 		contentPane.add(ans3);
 		buttonGroup.add(ans3);
 		
 		ans4.setHorizontalAlignment(SwingConstants.LEFT);
 		ans4.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		ans4.setBounds(509, 411, 209, 32);
+		ans4.setBounds(592, 401, 320, 32);
 		contentPane.add(ans4);
 		buttonGroup.add(ans4);
 		
@@ -355,6 +356,33 @@ private void	finishTest() {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnNewButton.setBounds(656, 492, 128, 30);
 		contentPane.add(btnNewButton);
+		
+		JLabel a = new JLabel("a");
+		a.setVerticalAlignment(SwingConstants.TOP);
+		a.setHorizontalAlignment(SwingConstants.CENTER);
+		a.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		a.setBounds(96, 332, 41, 22);
+		contentPane.add(a);
+		
+		JLabel lblB = new JLabel("b");
+		lblB.setVerticalAlignment(SwingConstants.TOP);
+		lblB.setHorizontalAlignment(SwingConstants.CENTER);
+		lblB.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblB.setBounds(531, 332, 41, 22);
+		contentPane.add(lblB);
+		
+		JLabel lblC = new JLabel("c");
+		lblC.setVerticalAlignment(SwingConstants.TOP);
+		lblC.setHorizontalAlignment(SwingConstants.CENTER);
+		lblC.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblC.setBounds(96, 421, 41, 22);
+		contentPane.add(lblC);
+		lblD.setVerticalAlignment(SwingConstants.TOP);
+		lblD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblD.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblD.setBounds(531, 411, 41, 22);
+		
+		contentPane.add(lblD);
 		showTimeLeft();
 		tTView.debug("leaving take test view method");
 	}

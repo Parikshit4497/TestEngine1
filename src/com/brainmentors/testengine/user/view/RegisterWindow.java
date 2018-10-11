@@ -37,6 +37,7 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -70,14 +71,17 @@ public class RegisterWindow extends JFrame {
 	private JPasswordField password_form;
 	private JTextField IdText;
 	private JTextField userIdText;
+	private String date;
 	JComboBox cityChooser;
 	JComboBox collegeChooser ;
 	JComboBox User_Type;
+	JDateChooser dateChooser;
+	static RegisterWindow frame ;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RegisterWindow frame = new RegisterWindow();
+					frame= new RegisterWindow();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -131,7 +135,8 @@ public class RegisterWindow extends JFrame {
 	}
 	public RegisterWindow() {
 		checkOffline();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -202,7 +207,7 @@ public class RegisterWindow extends JFrame {
 					
 				}else if(isChar=="incorrect") {
 					
-			JOptionPane.showMessageDialog(firstName,"Please use only  charachters");
+			JOptionPane.showMessageDialog(frame,"Please use only  charachters");
 			}
 				
 
@@ -248,7 +253,7 @@ public class RegisterWindow extends JFrame {
 					
 				}else if(isChar=="incorrect") {
 					
-			JOptionPane.showMessageDialog(lastName,"Please use only  charachters");
+			JOptionPane.showMessageDialog(frame,"Please use only  charachters");
 			}
 				
 
@@ -285,15 +290,6 @@ public class RegisterWindow extends JFrame {
 		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		lblNewLabel_3.setBounds(101, 193, 66, 27);
 		contentPane.add(lblNewLabel_3);
-		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.getCalendarButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		dateChooser.setBounds(242, 250, 178, 24);
-		contentPane.add(dateChooser);
 		
 		JLabel lblDateOfBirth = new JLabel("Date Of Birth");
 		lblDateOfBirth.setFont(new Font("Times New Roman", Font.BOLD, 15));
@@ -405,7 +401,7 @@ public class RegisterWindow extends JFrame {
 				if(isCorrect=="correct") {
 					phone_format.setText(" ");
 				}else if(isCorrect=="incorrect") {
-					JOptionPane.showMessageDialog(phoneNo,"please type  correct phone no" );
+					JOptionPane.showMessageDialog(frame,"please type  correct phone no" );
 				}
 				}else if(phoneNo.getText().length()<10||phoneNo.getText().length()>10) {
 		          		phone_format.setText("The phone no must have 10 digits");
@@ -549,16 +545,17 @@ public class RegisterWindow extends JFrame {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(firstName.getText()==null||lastName.getText()==null||Gender==null||dateChooser.getDateFormatString()==null||cityChooser.getSelectedItem().toString()==null||collegeChooser.getSelectedItem().toString()==null||emailID.getText()==null||phoneNo.getText()==null||password_form.getPassword().toString()==null||password_confirm.getPassword().toString()==null||streamChooser.getSelectedItem().toString()==null||User_Type.getSelectedItem().toString()==null||IdText.getText()==null||userIdText.getText()==null) {
+				String date=((JTextField)dateChooser.getDateEditor().getUiComponent()).getText();
+				if(firstName.getText()==null||lastName.getText()==null||Gender==null||date==null||cityChooser.getSelectedItem().toString()==null||collegeChooser.getSelectedItem().toString()==null||emailID.getText()==null||phoneNo.getText()==null||password_form.getPassword().toString()==null||password_confirm.getPassword().toString()==null||streamChooser.getSelectedItem().toString()==null||User_Type.getSelectedItem().toString()==null||IdText.getText()==null||userIdText.getText()==null) {
 					JOptionPane.showMessageDialog(btnNewButton,"Please fill all the fields ");
 				}
 				registerDTO.setFirstName(firstName.getText());
                 registerDTO.setLastName(lastName.getText());
                 registerDTO.setGender(Gender);
                 
-                String date=dateChooser.getDateFormatString();
                 
-                registerDTO.setDateOfBirth( date);
+                System.out.println("The date is " + date );
+                registerDTO.setDateOfBirth(date);
                 registerDTO.setSelectCity(cityChooser.getSelectedItem().toString());
                 registerDTO.setSelectCollege(collegeChooser.getSelectedItem().toString());
                 registerDTO.setEmailId(emailID.getText());
@@ -577,13 +574,13 @@ public class RegisterWindow extends JFrame {
                
                 try {
 				String result =	userdao.checkIfPresent(registerDTO);
-				JOptionPane.showMessageDialog(btnNewButton,result);
+				JOptionPane.showMessageDialog(frame,result);
 			
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					try {
 						String result =Offline.writeToObj(registerDTO)?"Record Stored in offline mode ":"Record could not be saved in  offline mode";
-						JOptionPane.showMessageDialog(btnNewButton, result);
+						JOptionPane.showMessageDialog(frame, result);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -611,6 +608,12 @@ public class RegisterWindow extends JFrame {
 		btnNewButton_1.setBounds(707, 475, 113, 34);
 		contentPane.add(btnNewButton_1);
 		
+		dateChooser = new JDateChooser();
+		
+		dateChooser.setDateFormatString("yyyy-MM-dd");
+		
+		dateChooser.setBounds(242, 254, 178, 20);
+		contentPane.add(dateChooser);
 		
 	}	
 		

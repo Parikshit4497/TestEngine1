@@ -126,18 +126,13 @@ private 	RightAuthenticationDTO rightAuth;
 			 rightAuth.setBoolean(true);
 		     rightAuth.setRightvalue(1);
 		     right.add(rightAuth);
-		   
 		     rightIsTrueDTO.setAnsticked(true);
-		
-			
 		}else {
 			RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
 			 rightAuth.setRightButton(Right1);
 			 rightAuth.setBoolean(false);
-	
-				right.add(rightAuth);
-		
-		}
+	         right.add(rightAuth);
+	   }
 		if(Right2.isSelected()) {
 			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
 			 rightAuth.setRightButton(Right2);
@@ -145,13 +140,11 @@ private 	RightAuthenticationDTO rightAuth;
 			 rightIsTrueDTO.setAnsticked(true);
 		       rightAuth.setRightvalue(2);
 				right.add(rightAuth);
-			
-		}else {
+			}else {
 			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
 			 rightAuth.setRightButton(Right2);
 			 rightAuth.setBoolean(false);
-			 
-				right.add(rightAuth);
+			 right.add(rightAuth);
 		}
 		if(Right3.isSelected()) {
 			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
@@ -160,15 +153,12 @@ private 	RightAuthenticationDTO rightAuth;
 			 rightAuth.setRightvalue(3);
 			 rightIsTrueDTO.setAnsticked(true);
 				right.add(rightAuth);
-			
-
-		}else {
-			RightAuthenticationDTO rightAuth =new RightAuthenticationDTO();
+			}else {
+			 RightAuthenticationDTO rightAuth =new RightAuthenticationDTO();
 			 rightAuth.setRightButton(Right3);
 			 rightAuth.setBoolean(false);
-		
-			right.add(rightAuth);
-		}
+		     right.add(rightAuth);
+			}
 		if(right4.isSelected()) {
 			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
 			 rightAuth.setRightButton(right4);
@@ -180,25 +170,19 @@ private 	RightAuthenticationDTO rightAuth;
 			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
 			 rightAuth.setRightButton(right4);
 			 rightAuth.setBoolean(false);
-			
-			right.add(rightAuth);
+		     right.add(rightAuth);
 		}
 		rightIsTrueDTO.setRightAuth(right);
 		this.userDTOlist.get(index).setRightIstrueDto(rightIsTrueDTO);
-	    
-       
-	
-	}
+	  }
 	public void selectUserRight() {
 		if(this.userDTOlist.get(index).getRightIstrueDto()!=null) {
 			System.out.println("Is null" +this.userDTOlist.get(index).getRightIstrueDto());
 			
-	System.out.println("select user rightindex" + index);
-	
+    System.out.println("select user rightindex" + index);
 	int i=0;		
 	if(this.userDTOlist.get(index).getRightIstrueDto().isAnsticked()) {
 	right=this.userDTOlist.get(index).getRightIstrueDto().getRightAuth();
-			
 		while(i<right.size()) {
 			if(right.get(i).isBoolean()) {
 				right.get(i).getRightButton().setSelected(true);
@@ -208,8 +192,7 @@ private 	RightAuthenticationDTO rightAuth;
 			i++;
 		}
 	}
-}
-	else {
+}else {
           i=0;
 	//right=this.userDTOlist.get(index).getRightIstrueDto().getRightAuth();
 	while(i<4) {
@@ -220,24 +203,26 @@ private 	RightAuthenticationDTO rightAuth;
 }
 }
 	
-	public void printUserData() {
+	public void printUserData() throws IndexOutOfBoundsException{
+		if(userDTOlist.size()==0) {
+           throw new IndexOutOfBoundsException();
+		}
 		if(index<this.userDTOlist.size()) {
 			selectUserRole();
 		 selectUserRight();
 		}
-		 
-		 
-		UserDTO userdto=new UserDTO();
+    UserDTO userdto=new UserDTO();
 	userdto=userDTOlist.get(index);
 	firstNamelbltxt.setText(userdto.getFirstName());
 	lastNametxt.setText(userdto.getLastName());
-	
 	phone_txt.setText(userdto.getPhoneNO());
 	emailtxt.setText(userdto.getEmailId());
 	cllgidtext.setText(userdto.getCollegId());
 	userRoletxt.setText(userdto.getSelectUsertype());
 	enableDisableButton();
+
 	}
+	
 	public void enableDisableButton() {
 		if(userDTOlist.size()==1){
 			previous.setEnabled(false);
@@ -293,7 +278,7 @@ private 	RightAuthenticationDTO rightAuth;
 				bg.clearSelection();
 			}
 		}
-	public void fetchNextScreen() {
+	public void fetchNextScreen() throws Exception {
 		UserDao userdao=new UserDao();
 		 fetchRole(index);
 		   fetchRight(index);
@@ -308,13 +293,13 @@ private 	RightAuthenticationDTO rightAuth;
 		this.dispose();
 	}
 	
-	public RoleRightsView() {
+	public RoleRightsView() throws IndexOutOfBoundsException {
 		loadUserData();
 		printUserData();
 		rightIsTrueDTO=new RightIsTruecountDTO();
 		rightIsTrueDTO.setAnsticked(false);
-		this.userDTOlist.get(index).setRightIstrueDto(rightIsTrueDTO);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    this.userDTOlist.get(index).setRightIstrueDto(rightIsTrueDTO);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setFont(new Font("Times New Roman", Font.BOLD, 15));
@@ -474,7 +459,6 @@ private 	RightAuthenticationDTO rightAuth;
 				   fetchRight(0);
 				   index=index+1;
 			   }else {
-				   
 				fetchRole(index);System.out.println("Role index next "+ index);
 				fetchRight(index);System.out.println("The right index next " + index);
 				index=index+1;
@@ -490,9 +474,14 @@ private 	RightAuthenticationDTO rightAuth;
 		submit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(index == userDTOlist.size()-1) {
-				fetchNextScreen();
+				try {
+					fetchNextScreen();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				}else{
-					JOptionPane.showMessageDialog(submit, "please fill in teh details for all the users");
+					JOptionPane.showMessageDialog(submit, "please fill in the details for all the users");
 				}
 			}
 		});

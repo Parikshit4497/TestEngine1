@@ -80,6 +80,7 @@ public class AuthenticationView extends JFrame {
 			authenticationview.debug("Inside loaduser data function ");
 			 try {
 				userDTOlist=userdao.fetchUserData();
+				
 				authenticationview.debug("Inside loaduser data function ");
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
@@ -87,9 +88,8 @@ public class AuthenticationView extends JFrame {
 				System.out.println(e);
 				authenticationview.error(convertPrintStackIntoString(e));
 			}
-			 System.out.println(userDTOlist.get(0).getFirstName());
+
 			
-			 System.out.println(userDTOlist.get(1).getFirstName());
 			 authenticationview.debug(" leaving  loaduser data   ");
         }
         public boolean submitAuthentication()  {
@@ -109,23 +109,18 @@ public class AuthenticationView extends JFrame {
         	return false;
         }
         public void selectYourOption() {
-        	
-        	if(this.userDTOlist.get(index).getAuthentication()!=null) {
+        		if(this.userDTOlist.get(index).getAuthentication()!=null) {
         	  authentication=this.userDTOlist.get(index).getAuthentication();
         	
-           if(authentication.equals("yes")) {
+             if(authentication.equals("yes")) {
         		  yes.setSelected(true);
         	  }else if(authentication.equals("no")) {
         		  no.setSelected(true);
         	  }
         	}else {
         		  bg.clearSelection();
-        	  }
-        	
-        		
-        		
+        	  }		
         }
-        
         public void enableDisableButton() {
     		if(userDTOlist.size()==1){
     			previous.setEnabled(false);
@@ -148,7 +143,11 @@ public class AuthenticationView extends JFrame {
     			next.setEnabled(true);
     		}
     	}
-        public void printUserData() {
+        public void printUserData() throws Exception {
+        	
+           if(userDTOlist.size()==0) {
+        	    throw new Exception("IndexOutOfBoundException");
+           }
         	if(index<userDTOlist.size()) {
         		selectYourOption();
         	}
@@ -163,7 +162,8 @@ public class AuthenticationView extends JFrame {
         	 cllgIdlbl.setText(userdto.getCollegId());
         	 usertype_txt.setFont(new Font("Times New Roman", Font.BOLD, 15));
         	 usertype_txt.setText(userdto.getSelectUsertype());
-        	enableDisableButton();
+             enableDisableButton();
+             
         }
 	     public void getDataAuthentication(int index) {
 	    	 
@@ -175,11 +175,12 @@ public class AuthenticationView extends JFrame {
 	    	 this.userDTOlist.get(index).setAuthentication(authentication);
 	    	 authentication="";
 	     }
-		public AuthenticationView() {
+		public AuthenticationView() throws Exception {
 		loadUserdata();
-		printUserData();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			printUserData();
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -272,11 +273,14 @@ public class AuthenticationView extends JFrame {
 		
 		previous.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-			    getDataAuthentication(index);
+	            getDataAuthentication(index);
 				index=index+-1;
-				printUserData() ;
-				
+				try {
+					printUserData() ;
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		previous.setFont(new Font("Times New Roman", Font.BOLD, 15));
@@ -290,11 +294,15 @@ public class AuthenticationView extends JFrame {
 					getDataAuthentication(0);
 					index=index+1;
 				}else {
-					
 					getDataAuthentication(index);
 					index=index+1;
 				}
-				printUserData();
+				try {
+					printUserData();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		next.setFont(new Font("Times New Roman", Font.BOLD, 15));

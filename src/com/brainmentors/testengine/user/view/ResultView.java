@@ -33,7 +33,8 @@ public class ResultView extends JFrame {
 	 */
 	
 	public ResultView(ArrayList<QuestionDTO>  questions,int finalScore) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

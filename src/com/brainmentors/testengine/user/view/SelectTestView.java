@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -27,19 +28,26 @@ import javax.swing.JButton;
 import java.awt.FlowLayout;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
+
 import javax.swing.UIManager;
+import java.awt.GridLayout;
+import java.awt.Insets;
+
+import javax.swing.JLabel;
+import java.awt.GridBagLayout;
 
 public class SelectTestView extends JFrame {
 
-	private JPanel contentPane;
-	private JPanel contentPane1;
-    private JRadioButton Button ;
-    private String TestName;
-     private ButtonGroup bg =new ButtonGroup();
-     JScrollPane scrollPane ;
-     ArrayList<JRadioButton> button;
+	private static JPanel contentPane;
+     private static JRadioButton Button ;
+     private static JLabel label;
+     private static String TestName;
+     private static ButtonGroup bg =new ButtonGroup();
+     static ArrayList<JRadioButton> button;
      static SelectTestView frame;
-     private JButton button_1;
+    static  private JButton button_1;
+    static private JPanel panel;
 	/**
 	 * Launch the application.
 	 */
@@ -55,7 +63,7 @@ public class SelectTestView extends JFrame {
 			}
 		});
 	}
-	public void selectTest() {
+	public  void selectTest() {
 		ArrayList<String> TestList =new ArrayList<>();
 
 		Connection connection =null;
@@ -85,29 +93,57 @@ public class SelectTestView extends JFrame {
 		}catch( SQLException e1) {
 			e1.printStackTrace();
 		}
+		
+		
 				
-		int x=0;
+	
+		
+		for(int i=0;i<TestList.size();i++) {
+			System.out.println("The list elements  " + TestList.get(i));
+		} 
+		int x=50;
+		String str="";
 		System.out.println("The size of the test list "  + TestList.size());
 	    button=new ArrayList<>();
+	    int j=0;
+	    GridBagConstraints c=new GridBagConstraints();
 		for(int i=0;i<TestList.size();i++) {
+			j=i;
 			Button= new JRadioButton(TestList.get(i));
+			    c.gridx=1;
+		        c.gridy=i;
+	        
+		        c.insets=new Insets(10,10,10,10);
+		        panel.add(Button,c);
+			str=(j+1) +". " ;
+			label=new JLabel(str);
+			 c.gridx=0;
+		        c.gridy=i;
+		        c.insets=new Insets(10,10,10,10);
+		      //  c.anchor=GridBagConstraints.PAGE_START;
+		        panel.add(label,c);
+			System.out.println("lable text " + label.getText());
+	       
 			System.out.println(TestList.get(i));
-		
 		    button.add(Button);
 			Button.setFont(new Font("Times New Roman", Font.BOLD, 15));
 			System.out.println("button loop");
-			Button.setBounds(0,x,100, 87);
+		//	Button.setBounds(x,100,100, 87);
 			bg.add(Button);
-			contentPane1.add(Button);
-			x+=i*20;
-		
-		}
-        	
+			
+			
+		//	x+=i*100;
+			
+			
+			
+			
+		  }
+		 
 		for( int i=0;i<button.size();i++) {
 			System.out.println("The test buttons " +button.get(i).getText());
 		}
 	}
-	public boolean  fetchTest() {
+	public  boolean  fetchTest() {
 		
 		for(int i=0;i<button.size();i++) {
 			
@@ -118,7 +154,7 @@ public class SelectTestView extends JFrame {
 				TakeTestView frame1= new TakeTestView(testName);
 				frame1.setVisible(true);
 				
-				frame.dispose();
+			//	frame.dispose();
 				return true;
 			}
 			
@@ -134,21 +170,13 @@ public class SelectTestView extends JFrame {
 	 * Create the frame.
 	 */
 	public SelectTestView() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
-		contentPane1 = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		scrollPane= new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		contentPane.add(scrollPane);
- 		contentPane1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-	contentPane1.setBounds(100,100, 900, 600);
-	scrollPane.setViewportView(contentPane1);
-	
-		scrollPane.setPreferredSize(new Dimension(800,400));
+		contentPane.setLayout(null);
 		button_1 = new JButton("Submit ");
 		button_1.setBackground(UIManager.getColor("Button.background"));
 		
@@ -157,15 +185,30 @@ public class SelectTestView extends JFrame {
 					if(fetchTest()) {
 						
 					}else {
-						JOptionPane.showMessageDialog(null, "Select atleast one button ");
+						JOptionPane.showMessageDialog(null, "Select atleast one test ");
 					}
 				}
 			});
 			button_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
-			button_1.setBounds(900, 600, 20, 30);
+			button_1.setBounds(648, 488, 148, 35);
 			contentPane.add(button_1);
+		
+			JScrollPane scrollPane = new JScrollPane();
+			scrollPane.setBounds(34, 23, 900, 400);
+		
 			
+			panel = new JPanel();
+		
+			panel.setLayout(new GridBagLayout());
+			panel.setBounds(34, 23,900, 400);
+			scrollPane.setViewportView(panel);
+			
+			
+			contentPane.add(scrollPane);
+		      	
 		selectTest();
 		bg.clearSelection();
 	}
+
 }
+

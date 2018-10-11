@@ -74,7 +74,7 @@ public class QuestionUploadHelper {
 	
 	public void setIntoQuestionDTO(QuestionDTO questionDTO,Cell currentCell,int cellCount) {
 		if(cellCount==1) {
-			questionDTO.setId((int)currentCell.getNumericCellValue());
+			questionDTO.setQno((int)currentCell.getNumericCellValue());
 			}
 		if(cellCount==2) {
 			questionDTO.setName(currentCell.getStringCellValue());

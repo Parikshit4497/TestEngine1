@@ -67,6 +67,7 @@ public class QuestionDAO {
 				QuestionDTO questionDTO = new QuestionDTO();
 			
 				questionDTO.setId(rs.getInt("qid"));
+				questionDTO.setQno(rs.getInt("qno"));
 				questionDTO.setName(rs.getString("name"));
 				questionDTO.setAns1(rs.getString("ans1"));
 				questionDTO.setAns2(rs.getString("ans2"));
@@ -109,6 +110,7 @@ public class QuestionDAO {
 				QuestionDao.debug("inside while block for executing the query ");
 				QuestionDTO questionDTO = new QuestionDTO();
 				questionDTO.setId(rs.getInt("qid"));
+				questionDTO.setQno(rs.getInt("qno"));
 				questionDTO.setName(rs.getString("name"));
 				questionDTO.setAns1(rs.getString("ans1"));
 				questionDTO.setAns2(rs.getString("ans2"));
@@ -151,6 +153,7 @@ public class QuestionDAO {
 				QuestionDao.debug("inside while block for executing the query ");
 				QuestionDTO questionDTO = new QuestionDTO();
 				questionDTO.setId(rs.getInt("qid"));
+				questionDTO.setQno(rs.getInt("qno"));
 				questionDTO.setName(rs.getString("name"));
 				questionDTO.setAns1(rs.getString("ans1"));
 				questionDTO.setAns2(rs.getString("ans2"));
@@ -193,7 +196,7 @@ public Boolean BulkUpload(ArrayList<QuestionDTO> questionList,String fileName,in
 			System.out.println("Inside if block  for findtest check");
 			return false;
 	     }else {
-		     System.out.println("Inside if block ");
+		     System.out.println("Inside else block ");
 			pstmt=connection.prepareStatement(QueryConstants.updateTest);
 			pstmt.setString(1, fileName);
 			pstmt.setInt(2, time);
@@ -204,7 +207,8 @@ public Boolean BulkUpload(ArrayList<QuestionDTO> questionList,String fileName,in
 		for(QuestionDTO question:questionList) {
 		System.out.println("Inside question upload");
 			QuestionDao.debug("inside bulk upload loop execution prepare statement ");
-			pstmt.setInt(1, question.getId());
+			
+			pstmt.setInt(1,question.getQno());
 			pstmt.setString(2, question.getName());
 			pstmt.setString(3, question.getAns1());
 			pstmt.setString(4, question.getAns2());

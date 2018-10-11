@@ -56,8 +56,8 @@ public class LoginView extends JFrame implements PathConstants{
 	}
 	public void  loadRegister() {
 		
-			this.setVisible(false);
-			this.dispose();
+			//this.setVisible(false);
+			//this.dispose();
 			RegisterWindow  registerWindow=new RegisterWindow();
 			registerWindow.setVisible(true);
 	
@@ -85,8 +85,8 @@ public class LoginView extends JFrame implements PathConstants{
 			dashBoard.filldashBoard(userdto);
 			dashBoard.setVisible(true);
 			dashBoard.setExtendedState(JFrame.MAXIMIZED_BOTH);
-			this.setVisible(false);
-			this.dispose();
+		//	this.setVisible(false);
+			//this.dispose();
 
 		}catch(ClassNotFoundException e) {
 	           JOptionPane.showMessageDialog(this, "Contact system admin some DB problem has occurred");
@@ -107,7 +107,8 @@ public class LoginView extends JFrame implements PathConstants{
 	 */
 	public LoginView() {
 		logger1.debug("Inside login view message");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

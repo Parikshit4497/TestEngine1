@@ -13,7 +13,15 @@ public class QuestionDTO {
       private  int score;
       private String thisAns;
       private String yourAns;
-      public String getThisAns() {
+      private int qno;
+      
+      public int getQno() {
+		return qno;
+	}
+	public void setQno(int qno) {
+		this.qno = qno;
+	}
+	public String getThisAns() {
   		return thisAns;
   	}
   	public void setThisAns(String thisAns) {

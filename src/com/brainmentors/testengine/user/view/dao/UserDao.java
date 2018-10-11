@@ -93,7 +93,7 @@ public class UserDao {
 			
 			
  	      int records[]=pstmt.executeBatch();
- 	      System.out.println("1 " + records[0] +" 2 " +records[1]);
+ 	    
  	      pstmt=con.prepareStatement(QueryConstants.setRoleRightMapping);
  	     for(i=0;i<userDTOlist.size();i++) {
  	    	 for(int j=0;j<userDTOlist.get(i).getRightIstrueDto().getRightAuth().size();j++) {
@@ -110,7 +110,7 @@ public class UserDao {
  		 }
 			
  	      int records1[]=pstmt.executeBatch();
- 	     System.out.println("1" + records1[0] +"2 " +records1[1]);
+ 	     
  	      if(records.length>0&&records1.length>0) {
  	    	  con.commit();
  	    	  System.out.println("Data entered in DB");

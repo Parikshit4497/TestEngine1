@@ -39,13 +39,9 @@ public class SplashTest extends JWindow implements PathConstants{
 			SplashTest.this.dispose();
 			LoginView  login =new LoginView();
 			login.setVisible(true);
-			
-			
 		}
-		
 		progressBar.setValue(counter);
 		counter++;
-		
 		}); 
 		timer.start();
 		logger.debug("leaving animation logic......");
