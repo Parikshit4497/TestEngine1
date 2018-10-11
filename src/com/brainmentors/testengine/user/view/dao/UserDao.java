@@ -41,7 +41,7 @@ public class UserDao {
 		int records[]=pstmt.executeBatch();
 		    if(records.length>0) {
 		    	con.commit();
-		    	result=true;
+		    	 result=true;
 		    }else {
 		    	con.rollback();
 		    	result=false;
@@ -65,18 +65,15 @@ public class UserDao {
 			 pstmt.close();
 		 }
 	 }
-		return false;
+		System.out.println("Result in daoa" + result);
+		return result;
 	}
  	public void updateRoleAndRights(ArrayList<UserDTO> userDTOlist) throws SQLException, ClassNotFoundException {
-// 		System.out.println("###########################################################################################");
-// 		System.out.println("Inside UserDAO updateRoleAndRights ");
-// 		System.out.println("Rights ::::::: ");
-// 		for(UserDTO ud : userDTOlist) {
-// 			for(RightAuthenticationDTO rights : ud.getRightIstrueDto().getRightAuth()) {
-// 				System.out.println("Right VALUE IS "+rights.getRightvalue());
-// 			}
-// 		}
- 	//	System.out.println("#################################################################################################");
+ 		System.out.println("###########################################################################################");
+ 		System.out.println("Inside UserDAO updateRoleAndRights ");
+ 		System.out.println("Rights ::::::: ");
+ 	
+ 		System.out.println("#################################################################################################");
 	   Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -93,25 +90,9 @@ public class UserDao {
 			
 			
  	      int records[]=pstmt.executeBatch();
- 	    
- 	      pstmt=con.prepareStatement(QueryConstants.setRoleRightMapping);
- 	     for(i=0;i<userDTOlist.size();i++) {
- 	    	 for(int j=0;j<userDTOlist.get(i).getRightIstrueDto().getRightAuth().size();j++) {
- 	    		 System.out.println("Right=" + userDTOlist.get(i).getRightIstrueDto().getRightAuth().get(j).getRightvalue());
- 	    		 if(userDTOlist.get(i).getRightIstrueDto().getRightAuth().get(j).getRightvalue()>0) {
- 			      pstmt.setInt(1,userDTOlist.get(i).getRightIstrueDto().getRightAuth().get(j).getRightvalue());
-    	
- 			pstmt.setInt(2,Integer.parseInt(userDTOlist.get(i).getRoleID()) );
- 			System.out.println(" role " + Integer.parseInt(userDTOlist.get(i).getRoleID())) ;
- 			pstmt.addBatch();
- 	    		 }
- 		   }
- 	    	
- 		 }
-			
- 	      int records1[]=pstmt.executeBatch();
+
  	     
- 	      if(records.length>0&&records1.length>0) {
+ 	      if(records.length>0) {
  	    	  con.commit();
  	    	  System.out.println("Data entered in DB");
  	      }else {

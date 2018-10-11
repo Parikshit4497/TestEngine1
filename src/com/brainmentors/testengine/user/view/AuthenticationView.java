@@ -99,6 +99,7 @@ public class AuthenticationView extends JFrame {
         	boolean result=false;
         	try {
         	 result=userdao.submitAuth(userDTOlist) ;
+        	 System.out.println("Result in authentication view " + result);
         	 authenticationview.debug("Inside submit authentication try  ");
         	
         	}catch(SQLException e) {
@@ -106,7 +107,9 @@ public class AuthenticationView extends JFrame {
         		System.out.println(e);
         		authenticationview.error(convertPrintStackIntoString(e));
         	}
-        	return false;
+        	
+        	System.out.println("Result in authen view sent" + result);
+        	return result;
         }
         public void selectYourOption() {
         		if(this.userDTOlist.get(index).getAuthentication()!=null) {
@@ -312,7 +315,9 @@ public class AuthenticationView extends JFrame {
 		JButton btnNewButton_2 = new JButton("Submit");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-		String	result=	submitAuthentication()?"Authentication sucessfull":"Authentication unsucessful";
+				boolean status=false;
+				status=submitAuthentication();
+		String	result=	status?"Authentication sucessfull":"Authentication unsucessful";
 		JOptionPane.showMessageDialog(btnNewButton_2,result);
 			}
 		});

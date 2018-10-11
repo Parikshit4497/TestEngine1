@@ -81,19 +81,19 @@ private 	RightAuthenticationDTO rightAuth;
 	JButton btnBack = new JButton("Back");
 	JLabel studentlbl = new JLabel("Student");
 	JLabel teacherlbl = new JLabel("Teacher");
-	JLabel uploadTest = new JLabel("Upload Test");
-	private JLabel rightlbl = new JLabel("Right");
-	JLabel takeTestlbl = new JLabel("Take Test");
-	JLabel seeresuktlbl = new JLabel("See Result");
+	//JLabel uploadTest = new JLabel("Upload Test");
+//	private JLabel rightlbl = new JLabel("Right");
+	//JLabel takeTestlbl = new JLabel("Take Test");
+	//JLabel seeresuktlbl = new JLabel("See Result");
 	ButtonGroup bg=new ButtonGroup();
 	JButton previous = new JButton("Previous");
 	JButton next = new JButton("Next");
    
-    JCheckBox Right1 = new JCheckBox("1");
-    JCheckBox Right2 = new JCheckBox("2");
-    JCheckBox Right3 = new JCheckBox("3");
-    JCheckBox right4 = new JCheckBox("4");
-    JCheckBox[] rightArray={Right1,Right2,Right3,right4};
+//    JCheckBox Right1 = new JCheckBox("1");
+//    JCheckBox Right2 = new JCheckBox("2");
+//    JCheckBox Right3 = new JCheckBox("3");
+//    JCheckBox right4 = new JCheckBox("4");
+//    JCheckBox[] rightArray={Right1,Right2,Right3,right4};
 	ArrayList<UserDTO> userDTOlist =new ArrayList<>();
 	public void adminView() {
 		AdminView frame=new AdminView();
@@ -115,101 +115,101 @@ private 	RightAuthenticationDTO rightAuth;
 	          
 	}
 	
-	public void fetchRight(int index) {
-		count=0;
-	    right=new ArrayList<>();
-	    
-	    rightIsTrueDTO=new RightIsTruecountDTO();
-		if(Right1.isSelected()) {
-			RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
-			 rightAuth.setRightButton(Right1);
-			 rightAuth.setBoolean(true);
-		     rightAuth.setRightvalue(1);
-		     right.add(rightAuth);
-		     rightIsTrueDTO.setAnsticked(true);
-		}else {
-			RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
-			 rightAuth.setRightButton(Right1);
-			 rightAuth.setBoolean(false);
-	         right.add(rightAuth);
-	   }
-		if(Right2.isSelected()) {
-			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
-			 rightAuth.setRightButton(Right2);
-			 rightAuth.setBoolean(true);
-			 rightIsTrueDTO.setAnsticked(true);
-		       rightAuth.setRightvalue(2);
-				right.add(rightAuth);
-			}else {
-			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
-			 rightAuth.setRightButton(Right2);
-			 rightAuth.setBoolean(false);
-			 right.add(rightAuth);
-		}
-		if(Right3.isSelected()) {
-			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
-			 rightAuth.setRightButton(Right3);
-			 rightAuth.setBoolean(true);
-			 rightAuth.setRightvalue(3);
-			 rightIsTrueDTO.setAnsticked(true);
-				right.add(rightAuth);
-			}else {
-			 RightAuthenticationDTO rightAuth =new RightAuthenticationDTO();
-			 rightAuth.setRightButton(Right3);
-			 rightAuth.setBoolean(false);
-		     right.add(rightAuth);
-			}
-		if(right4.isSelected()) {
-			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
-			 rightAuth.setRightButton(right4);
-			 rightAuth.setBoolean(true);
-			 rightAuth.setRightvalue(4);
-			 rightIsTrueDTO.setAnsticked(true);
-				right.add(rightAuth);
-		}else {
-			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
-			 rightAuth.setRightButton(right4);
-			 rightAuth.setBoolean(false);
-		     right.add(rightAuth);
-		}
-		rightIsTrueDTO.setRightAuth(right);
-		this.userDTOlist.get(index).setRightIstrueDto(rightIsTrueDTO);
-	  }
-	public void selectUserRight() {
-		if(this.userDTOlist.get(index).getRightIstrueDto()!=null) {
-			System.out.println("Is null" +this.userDTOlist.get(index).getRightIstrueDto());
-			
-    System.out.println("select user rightindex" + index);
-	int i=0;		
-	if(this.userDTOlist.get(index).getRightIstrueDto().isAnsticked()) {
-	right=this.userDTOlist.get(index).getRightIstrueDto().getRightAuth();
-		while(i<right.size()) {
-			if(right.get(i).isBoolean()) {
-				right.get(i).getRightButton().setSelected(true);
-			}else{
-				right.get(i).getRightButton().setSelected(false);
-			}
-			i++;
-		}
-	}
-}else {
-          i=0;
-	//right=this.userDTOlist.get(index).getRightIstrueDto().getRightAuth();
-	while(i<4) {
-	        rightArray[i].setSelected(false);
-	        i++;
-	}
-		
-}
-}
-	
+//	public void fetchRight(int index) {
+//		count=0;
+//	    right=new ArrayList<>();
+//	    
+//	    rightIsTrueDTO=new RightIsTruecountDTO();
+//		if(Right1.isSelected()) {
+//			RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
+//			 rightAuth.setRightButton(Right1);
+//			 rightAuth.setBoolean(true);
+//		     rightAuth.setRightvalue(1);
+//		     right.add(rightAuth);
+//		     rightIsTrueDTO.setAnsticked(true);
+//		}else {
+//			RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
+//			 rightAuth.setRightButton(Right1);
+//			 rightAuth.setBoolean(false);
+//	         right.add(rightAuth);
+//	   }
+//		if(Right2.isSelected()) {
+//			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
+//			 rightAuth.setRightButton(Right2);
+//			 rightAuth.setBoolean(true);
+//			 rightIsTrueDTO.setAnsticked(true);
+//		       rightAuth.setRightvalue(2);
+//				right.add(rightAuth);
+//			}else {
+//			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
+//			 rightAuth.setRightButton(Right2);
+//			 rightAuth.setBoolean(false);
+//			 right.add(rightAuth);
+//		}
+//		if(Right3.isSelected()) {
+//			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO();
+//			 rightAuth.setRightButton(Right3);
+//			 rightAuth.setBoolean(true);
+//			 rightAuth.setRightvalue(3);
+//			 rightIsTrueDTO.setAnsticked(true);
+//				right.add(rightAuth);
+//			}else {
+//			 RightAuthenticationDTO rightAuth =new RightAuthenticationDTO();
+//			 rightAuth.setRightButton(Right3);
+//			 rightAuth.setBoolean(false);
+//		     right.add(rightAuth);
+//			}
+//		if(right4.isSelected()) {
+//			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
+//			 rightAuth.setRightButton(right4);
+//			 rightAuth.setBoolean(true);
+//			 rightAuth.setRightvalue(4);
+//			 rightIsTrueDTO.setAnsticked(true);
+//				right.add(rightAuth);
+//		}else {
+//			 RightAuthenticationDTO rightAuth=new RightAuthenticationDTO(); 
+//			 rightAuth.setRightButton(right4);
+//			 rightAuth.setBoolean(false);
+//		     right.add(rightAuth);
+//		}
+//		rightIsTrueDTO.setRightAuth(right);
+//		this.userDTOlist.get(index).setRightIstrueDto(rightIsTrueDTO);
+//	  }
+//	public void selectUserRight() {
+//		if(this.userDTOlist.get(index).getRightIstrueDto()!=null) {
+//			System.out.println("Is null" +this.userDTOlist.get(index).getRightIstrueDto());
+//			
+//    System.out.println("select user rightindex" + index);
+//	int i=0;		
+//	if(this.userDTOlist.get(index).getRightIstrueDto().isAnsticked()) {
+//	right=this.userDTOlist.get(index).getRightIstrueDto().getRightAuth();
+//		while(i<right.size()) {
+//			if(right.get(i).isBoolean()) {
+//				right.get(i).getRightButton().setSelected(true);
+//			}else{
+//				right.get(i).getRightButton().setSelected(false);
+//			}
+//			i++;
+//		}
+//	}
+//}else {
+//          i=0;
+//	//right=this.userDTOlist.get(index).getRightIstrueDto().getRightAuth();
+//	while(i<4) {
+//	        rightArray[i].setSelected(false);
+//	        i++;
+//	}
+//		
+//}
+//}
+//	
 	public void printUserData() throws IndexOutOfBoundsException{
 		if(userDTOlist.size()==0) {
            throw new IndexOutOfBoundsException();
 		}
 		if(index<this.userDTOlist.size()) {
 			selectUserRole();
-		 selectUserRight();
+	//	 selectUserRight();
 		}
     UserDTO userdto=new UserDTO();
 	userdto=userDTOlist.get(index);
@@ -281,7 +281,7 @@ private 	RightAuthenticationDTO rightAuth;
 	public void fetchNextScreen() throws Exception {
 		UserDao userdao=new UserDao();
 		 fetchRole(index);
-		   fetchRight(index);
+		//   fetchRight(index);
 		try {
 			userdao.updateRoleAndRights(userDTOlist);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -296,9 +296,7 @@ private 	RightAuthenticationDTO rightAuth;
 	public RoleRightsView() throws IndexOutOfBoundsException {
 		loadUserData();
 		printUserData();
-		rightIsTrueDTO=new RightIsTruecountDTO();
-		rightIsTrueDTO.setAnsticked(false);
-	    this.userDTOlist.get(index).setRightIstrueDto(rightIsTrueDTO);
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
@@ -396,10 +394,11 @@ private 	RightAuthenticationDTO rightAuth;
 		contentPane.add(Role2);
 		
 		
-		adminlbl.setFont(new Font("Times New Roman", Font.BOLD, 15));
+
 		adminlbl.setBounds(97, 205, 115, 26);
+		adminlbl.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		contentPane.add(adminlbl);
-		
+			
 		
 		studentlbl.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		studentlbl.setBounds(597, 209, 104, 19);
@@ -417,32 +416,14 @@ private 	RightAuthenticationDTO rightAuth;
 		contentPane.add(teacherlbl);
 		
 		
-		uploadTest.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		uploadTest.setBounds(97, 295, 99, 19);
-		contentPane.add(uploadTest);
-		
-		
-		takeTestlbl.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		takeTestlbl.setBounds(597, 295, 74, 19);
-		contentPane.add(takeTestlbl);
-		
-		
-		seeresuktlbl.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		seeresuktlbl.setBounds(377, 295, 115, 19);
-		contentPane.add(seeresuktlbl);
-		
-		
-		rightlbl.setHorizontalAlignment(SwingConstants.LEFT);
-		rightlbl.setVerticalAlignment(SwingConstants.BOTTOM);
-		rightlbl.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		rightlbl.setBounds(74, 254, 99, 19);
-		contentPane.add(rightlbl);
+
 		
 		previous.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				fetchRole(index);
 				System.out.println("Role index previous " + index);
-				fetchRight(index);System.out.println("Rigt index previous " + index);
+			
+				System.out.println("Rigt index previous " + index);
 				index=index+-1;
 				printUserData();
 			}
@@ -456,11 +437,11 @@ private 	RightAuthenticationDTO rightAuth;
 			public void actionPerformed(ActionEvent e) {
 			   if(index==0) {
 				   fetchRole(0);
-				   fetchRight(0);
+				 //  fetchRight(0);
 				   index=index+1;
 			   }else {
 				fetchRole(index);System.out.println("Role index next "+ index);
-				fetchRight(index);System.out.println("The right index next " + index);
+			
 				index=index+1;
 			   }
 			   printUserData();
@@ -500,29 +481,6 @@ private 	RightAuthenticationDTO rightAuth;
 		btnBack.setBounds(705, 401, 119, 28);
 		contentPane.add(btnBack);
 		
-		JLabel lblAdminView = new JLabel("Admin View");
-		lblAdminView.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblAdminView.setBounds(790, 295, 115, 19);
-		contentPane.add(lblAdminView);
-		
-		
-		Right1.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		Right1.setBounds(60, 293, 33, 23);
-		contentPane.add(Right1);
-		
-		
-		Right2.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		Right2.setBounds(331, 293, 33, 23);
-		contentPane.add(Right2);
-		
-		
-		Right3.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		Right3.setBounds(558, 293, 33, 23);
-		contentPane.add(Right3);
-		
-		
-		right4.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		right4.setBounds(745, 293, 33, 23);
-		contentPane.add(right4);
+
 	}
 }

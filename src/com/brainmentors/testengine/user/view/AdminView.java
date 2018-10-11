@@ -33,7 +33,9 @@ public class AdminView extends JFrame {
 	 * Launch the application.
 	 */
 	 private static AdminView frame ;
-	Logger adminview = Logger.getLogger(AdminView.class);
+	private static RoleRightsView frame1;
+	private static AuthenticationView frame2;
+static	Logger adminview = Logger.getLogger(AdminView.class);
 	public static void main(String[] args) {
 	
 		EventQueue.invokeLater(new Runnable() {
@@ -52,27 +54,28 @@ public class AdminView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public void authenticationOpen() {
+	public static void authenticationOpen() {
 		adminview.debug("Entering authentication open ");
 		try {
-		AuthenticationView frame=new AuthenticationView();
+		frame2=new AuthenticationView();
 		}catch(Exception e1) {
 			
 				AdminView.generateMsg(false);
 		
 		}
-		frame.setVisible(true);
+		frame2.setVisible(true);
 	//	this.dispose();
 		adminview.debug("leaving  authentication ");
 	}
-	public void roleRights() {
+	public static void roleRights() {
 		adminview.debug("Inside role rights function for frame call");
+		
 		try {
-		RoleRightsView frame=new RoleRightsView();
+		frame1=new RoleRightsView();
 		}catch(IndexOutOfBoundsException e) {
 			AdminView.generateMsg(false);
 		}
-		frame.setVisible(true);
+		frame1.setVisible(true);
 		//this.dispose();
 	adminview.debug("leaving  role rights");
 	}

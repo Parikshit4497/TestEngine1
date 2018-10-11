@@ -104,13 +104,13 @@ public void setRoleID(String roleID) {
 	this.roleID = roleID;
 }
 
-private RightIsTruecountDTO rightIstrueDto;
-public RightIsTruecountDTO getRightIstrueDto() {
-	return rightIstrueDto;
-}
-public void setRightIstrueDto(RightIsTruecountDTO rightIstrueDto) {
-	this.rightIstrueDto = rightIstrueDto;
-}
+//private RightIsTruecountDTO rightIstrueDto;
+//public RightIsTruecountDTO getRightIstrueDto() {
+//	return rightIstrueDto;
+//}
+//public void setRightIstrueDto(RightIsTruecountDTO rightIstrueDto) {
+//	this.rightIstrueDto = rightIstrueDto;
+//}
 
 
 public int getUid() {
